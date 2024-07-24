@@ -1,38 +1,500 @@
-.App {
+:root {
+  --primary: #3a3a3a; /* Dark Gray for text */
+  --heading-color: #454545; /* Slightly lighter gray for headings */
+  --bg-shade: #fafafa; /* Very light gray for backgrounds */
+  --darkblue: #2a2a72; /* Deep blue for accents */
+  --black: #000000; /* Black */
+  --white: #ffffff; /* White */
+  --hover-bg1: rgba(255, 204, 204, 0.7); /* Soft red with transparency */
+  --hover-bg2: rgba(173, 216, 230, 0.7); /* Soft blue with transparency */
+  --hover-bg3: rgba(144, 238, 144, 0.7); /* Soft green with transparency */
+  --hover-bg4: rgba(255, 165, 0, 0.6); /* Soft orange with transparency */
+  --hover-bg5: rgba(221, 160, 221, 0.7); /* Soft purple with transparency */
+  --hover-bg6: rgba(255, 255, 153, 0.7); /* Soft yellow with transparency */
+  --button-bg: rgba(255, 255, 153, 0.7); /* Soft yellow for button background */
+  --button-color: #3a3a3a; /* Dark Gray for button text */
+  --bg-dark: #181818; /* Dark background for dark mode */
+  --text-light: #e0e0e0; /* Light color for text in dark mode */
+  --accent-color: #ff8c42; /* A warm accent color for important components (e.g., buttons and links) */
+  --card-bg: #292929; /* Dark background for cards or elevated surfaces */
+  --hover-color: #ff6f61; /* A warm color for hover states */
+}
+
+body {
+  margin: 0;
+  font-family: "Caveat", cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--bg-dark);
+  padding: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  color: var(--primary);
+}
+
+.hero--section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px;
+  height: 100vh;
+  background-color: var(--bg-shade);
+}
+
+.hero--section-content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 50%;
+}
+
+.hero--section-content {
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--heading-color);
+}
+
+.hero--section-title {
+  font-size: 48px;
+  margin: 20px 0;
+}
+
+.hero--section-description {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.hero--section--img {
+  max-width: 50%;
+}
+
+.hero--section--img wired-image {
+  width: 100%;
+  height: auto;
+}
+
+.btn-primary {
+  display: block;
+  margin-left: auto;
+  font-family: sans-serif;
+  font-size: 14px;
+  height: 36px;
+  line-height: 28px;
+  width: 140px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: var(--button-bg);
+  color: var(--button-color);
+}
+
+.portfolio--section {
   text-align: center;
+  background-color: var(--bg-shade);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.portfolio-section--heading {
+  font-size: 36px;
+  margin-bottom: 10px;
+  font-family: "Caveat", cursive;
+  color: var(--heading-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.portfolio-sub--title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Caveat", cursive;
+  color: var(--heading-color);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.portfolio--section--container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  justify-content: center;
+}
+
+.portfolio--section--card {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg);
+}
+
+.portfolio--section--card:hover {
+  transform: translateY(-10px);
+}
+
+.portfolio--section--card-img {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-bottom: 3px solid var(--hover-bg2);
+}
+
+.portfolio--section--card-img-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portfolio--section--card-content {
+  padding: 15px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.portfolio--section--title {
+  padding-top: 10px;
+  font-size: 18px;
+  margin-bottom: 5px;
+  font-family: "Caveat", cursive;
+  color: var(--text-light);
+}
+
+.text-md {
+  font-size: 16px;
+  font-family: "Caveat", cursive;
+  color: var(--text-light);
+}
+
+.text-sm {
+  font-size: 14px;
+  margin-top: 10px;
+  font-family: "Caveat", cursive;
+  color: var(--text-light);
+}
+
+.portfolio--link a {
+  font-size: 14px;
+  color: var(--primary);
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-github {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: var(--white);
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: var(--accent-color);
+}
+
+.btn-github img {
+  margin-right: 10px;
+}
+
+.skills--section--card {
+  background-color: var(--white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, background-color 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 150px;
+  height: 200px;
 }
 
-.App-link {
-  color: #61dafb;
+.skills--section--card:hover {
+  transform: translateY(-10px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.skills--section--img {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skills--section--img img {
+  width: 100%;
+  height: auto;
+  margin-top: 25px;
+}
+
+.skills--section--card--content {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.skills--section--title {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.skills--section {
+  padding: 50px;
+}
+
+.skills--container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.skills--section--heading {
+  font-size: 36px;
+  margin: 10px 0;
+  color: var(--heading-color);
+}
+
+.skills--section--container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .skills--section--container {
+    grid-template-columns: repeat(3, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (min-width: 1001px) {
+  .skills--section--container {
+    grid-template-columns: repeat(5, 1fr);
   }
+}
+
+.about--section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  height: 100vh;
+  background-color: var(--bg-shade);
+}
+
+.about--section--img {
+  max-width: 50%;
+}
+
+.about--section--img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about--section--box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 50%;
+}
+
+.hero--section--content {
+  padding: 20px;
+}
+
+.section--title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--heading-color);
+}
+
+.skills--section-heading {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.hero--section-description {
+  font-size: 18px;
+  margin: 20px 0;
+  color: var(--primary);
+}
+
+.footer--container {
+  padding: 50px;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.footer--link--container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer--items ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+}
+
+.footer--items li {
+  margin: 0 15px;
+}
+
+.footer--social--icon ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+}
+
+.footer--social--icon li {
+  margin: 0 10px;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+  margin: 40px 0;
+}
+
+.footer--content--container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer--content {
+  font-size: 14px;
+}
+
+.footer--social--icon ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+}
+
+.footer--social--icon li {
+  margin: 0 10px;
+}
+
+.contact--section {
+  padding: 50px;
+  background-color: var(--bg-shade);
+}
+
+.contact--container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contact--section--heading {
+  font-size: 36px;
+  margin: 10px 0;
+  color: var(--heading-color);
+}
+
+.contact--section--container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.contact--section--card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.contact--section--card:hover {
+  transform: translateY(-10px);
+}
+
+.contact--section--card-content {
+  padding: 20px;
+}
+
+.contact--section--title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.contact--section--description {
+  font-size: 16px;
+  color: var(--darkblue);
+}
+
+/* New CSS Classes for Contact Form */
+.contact--form--input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.contact--form--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  background-color: inherit; /* Inherit background color from parent for consistency */
+}
+
+.contact--form--container-dark {
+  background-color: var(--bg-dark); /* Dark background for dark mode */
+  color: var(--text-light);
+}
+
+
+.contact--form--button {
+  padding: 10px 20px;
+  color: var(--button-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  background-color: var(--button-bg);
+}
+
+/* Main container styling to ensure centering */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--bg-dark);
 }

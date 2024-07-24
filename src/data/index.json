@@ -1,0 +1,115 @@
+{
+  "skills": [
+    {
+      "id": 1,
+      "src": "./img/java-script-1.png",
+      "title": "JavaScript",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies."
+    },
+    {
+      "id": 2,
+      "src": "./img/type-script-1.png",
+      "title": "TypeScript",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies."
+    },
+    {
+      "id": 3,
+      "src": "./img/HTML-CSS-1.png",
+      "title": "HTML + CSS",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies."
+    },
+    {
+      "id": 4,
+      "src": "./img/react-1.png",
+      "title": "REACT",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies."
+    },
+    {
+      "id": 5,
+      "src": "./img/nodejs-1.png",
+      "title": "Node.js",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies."
+    }
+    ,
+    {
+      "id": 5,
+      "src": "./img/express-js-1.png",
+      "title": "Express.js",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies."
+    }
+    ,
+    {
+      "id": 6,
+      "src": "./img/mongodb-1.png",
+      "title": "MongoDB",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies."
+    }
+    ,
+    {
+      "id": 7,
+      "src": "./img/sql-1.png",
+      "title": "SQL",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies."
+    }
+    ,
+    {
+      "id": 8,
+      "src": "./img/github-1.png",
+      "title": "GitHub",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies."
+    },
+    {
+      "id": 9,
+      "src": "./img/angularjs-1.png",
+      "title": "Angular",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies."
+    }
+    
+    
+  
+  ],
+  "portfolio": [
+    {
+      "id": 1,
+      "src": "./img/instagram-clone.png",
+      "title": "Instagram-Clone",
+      "description": "A responsive Instagram clone built using the MERN stack and Material-UI (Mui). This web application replicates key features of the popular social media platform, Instagram, and showcases my proficiency in full-stack development.",
+      "link": "https://instagramclone-wahh.onrender.com"
+    },
+    {
+      "id": 2,
+      "src": "./img/pozmtours.png",
+      "title": "Natours",
+      "description": "fictional application where users can effortlessly book tours across a multitude of exciting destinations. Whether you're looking for an adventure or a relaxing getaway, Natours offers a seamless and comprehensive booking experience.",
+      "link": "https://pozmatours-84e34440b450.herokuapp.com"
+
+    }
+  ],
+  
+  "testimonial": [
+    {
+      "id": 1,
+      "count": "5",
+      "src": "./img/avatar-image.png",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies.",
+      "author_name": "Dianne Russel",
+      "author_deignation": "Starbucks"
+    },
+    {
+      "id": 2,
+      "count": "5",
+      "src": "./img/avatar-image-1.png",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies.",
+      "author_name": "Kristin Waston",
+      "author_deignation": "Louis Vuitton"
+    },
+    {
+      "id": 3,
+      "count": "5",
+      "src": "./img/avatar-image2.png",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies ultricies.",
+      "author_name": "Kathryn Murphy",
+      "author_deignation": "McDonalds"
+    }
+  ]
+}
