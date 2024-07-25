@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { useTheme } from '../Home/ThemeContext'; 
 import { Card, CardContent, Button, Typography, Box } from '@mui/material';
@@ -6,7 +6,11 @@ import 'wired-elements';
 
 export default function HeroSection() {
   const { theme } = useTheme();
-  const heroImageSrc = theme.palette.mode === 'dark' ? './img/meDrawLampOn.png' : './img/meDrawWithLamp.png';
+  const [heroImageSrc, setHeroImageSrc] = useState(theme.palette.mode === 'dark' ? './img/meDrawLampOn.png' : './img/meDrawWithLamp.png');
+
+  useEffect(() => {
+    setHeroImageSrc(theme.palette.mode === 'dark' ? './img/meDrawLampOn.png' : './img/meDrawWithLamp.png');
+  }, [theme.palette.mode]);
 
   return (
     <section id="heroSection" className="hero--section" style={{ backgroundColor: theme.palette.background.default }}>
@@ -79,12 +83,14 @@ export default function HeroSection() {
           </CardContent>
         </Card>
       </Box>
-      <div className="hero--section--img">
+      <div className="image-container">
         <wired-image 
+          class="hero-image" 
           src={heroImageSrc} 
           alt="Hero Section" 
           elevation="5" 
-          style={{ width: '300px', height: 'auto', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)' }}></wired-image>
+          style={{ width: '300px', height: 'auto' }}
+        ></wired-image>
       </div>
     </section>
   );
