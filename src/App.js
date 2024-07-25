@@ -8,6 +8,7 @@ import AboutMe from './Pages/Home/AboutMe';
 import ContactMe from './Pages/Home/ContactMe';
 import MyPortfolio from './Pages/Home/MyProtfolio';
 import MySkills from './Pages/Home/MySkills';
+import './App.css';
 
 
 
