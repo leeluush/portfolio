@@ -14,7 +14,7 @@ import './App.css';
 
 function App() {
   return (
-    <ThemeProvider>  // Use your custom ThemeProvider here
+    <ThemeProvider> 
       <Router>
         <Navbar />
         <Routes>
