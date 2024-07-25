@@ -2,17 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Typography, Button, Box, IconButton } from '@mui/material';
 import { Link as ScrollLink, Events, scrollSpy } from 'react-scroll';
 import { useTheme } from '../Home/ThemeContext';
-import bulbOnIcon from '../../assets/blubOn.png';  
+import bulbOnIcon from '../../assets/blubOn.png';
 import bulbOffIcon from '../../assets/blubOff.png';
 
 function Navbar() {
   const { theme, toggleTheme } = useTheme();
-  const [activeLink, setActiveLink] = useState('');
+  const [activeLink, setActiveLink] = useState(null);
   const [userHasScrolled, setUserHasScrolled] = useState(false);
   const [iconClicked, setIconClicked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
+    const savedIconClicked = localStorage.getItem("iconClicked") === "true";
+    setIconClicked(savedIconClicked);
+
     scrollSpy.update();
     const handleScroll = () => {
       if (!userHasScrolled) setUserHasScrolled(true);
@@ -40,7 +43,9 @@ function Navbar() {
   }, []);
 
   const handleSetActive = (to) => {
-    setActiveLink(to);
+    if (userHasScrolled) {
+      setActiveLink(to);
+    }
   };
 
   const handleLinkClick = (link) => {
@@ -49,7 +54,11 @@ function Navbar() {
 
   const handleIconClick = () => {
     toggleTheme();
-    setIconClicked(prev => !prev);
+    setIconClicked(prev => {
+      const newState = !prev;
+      localStorage.setItem("iconClicked", newState);
+      return newState;
+    });
   };
 
   const handleMouseEnter = () => {
@@ -72,7 +81,6 @@ function Navbar() {
     }
   };
 
-  // Define links for navigation
   const links = [
     { key: 'heroSection', id: 'heroSection', label: 'Home' },
     { key: 'skillsSection', id: 'skillsSection', label: 'My Skills' },
@@ -111,11 +119,23 @@ function Navbar() {
               onClick={() => handleLinkClick(link.key)}
             >
               <Button sx={{
-                fontFamily: 'Caveat',
-                bgcolor: activeLink === link.key ? 'rgba(255, 255, 102, 0.7)' : 'transparent',
-                color: activeLink === link.key ? theme.palette.text.primary : theme.palette.text.primary,
-                '&:hover': { bgcolor: 'rgba(255, 255, 102, 0.7)', color: 'black' }
-              }} color={activeLink === link.key ? 'primary' : 'inherit'}>
+                display: 'inline-block',
+                marginLeft: '10px',
+                height: '36px',
+                padding: '0 15px',
+                fontFamily: 'Caveat, cursive',
+                fontSize: '16px',
+                backgroundColor: activeLink === link.key ? 'var(--highlight-color)' : 'transparent',
+                color: activeLink === link.key ? 'var(--primary)' : theme.palette.mode === 'light' ? 'var(--primary)' : 'var(--text-light)',
+                border: 'none',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                transition: 'background-color 0.3s, color 0.3s',
+                '&:hover': {
+                  backgroundColor: 'var(--highlight-color)',
+                  color: 'var(--primary)'
+                }
+              }}>
                 {link.label}
               </Button>
             </ScrollLink>

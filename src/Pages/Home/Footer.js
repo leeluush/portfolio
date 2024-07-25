@@ -90,7 +90,7 @@ function Footer() {
           <ul style={{ display: 'flex', padding: 0, listStyleType: 'none' }}>
             <li style={{ margin: '0 10px' }}>
               <a
-                href="https://www.facebook.com/"
+                href="https://www.facebook.com/lee.pozmantir/"
                 className="navbar--content"
                 target="_blank"
                 rel="noreferrer"
@@ -112,7 +112,7 @@ function Footer() {
             </li>
             <li style={{ margin: '0 10px' }}>
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/leeluush86/"
                 className="navbar--content"
                 target="_blank"
                 rel="noreferrer"
@@ -136,7 +136,7 @@ function Footer() {
             </li>
             <li style={{ margin: '0 10px' }}>
               <a
-                href="https://www.twitter.com/"
+                href="https://twitter.com/leepozmantir"
                 className="navbar--content"
                 target="_blank"
                 rel="noreferrer"
@@ -158,7 +158,7 @@ function Footer() {
             </li>
             <li style={{ margin: '0 10px' }}>
               <a
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/lee-pozmantir-confino-239a1253/"
                 className="navbar--content"
                 target="_blank"
                 rel="noreferrer"

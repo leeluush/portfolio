@@ -13,8 +13,24 @@ export default function MySkills() {
       </div>
       <div className="skills--section--container">
         {data?.skills?.map((skill, index) => (
-          <div key={index} className="skills--section--card" style={{ backgroundColor: theme.palette.background.paper }}>
-            <div className="skills--section--img">
+          <div 
+            key={index} 
+            className="skills--section--card" 
+            style={{ 
+              backgroundColor: theme.palette.mode === 'dark' ? '#1E1E1E' : theme.palette.background.paper, 
+              borderColor: theme.palette.mode === 'dark' ? '#444' : '#ccc', 
+              borderWidth: '1px', 
+              borderStyle: 'solid'
+            }}
+          >
+            <div 
+              className="skills--section--img" 
+              style={{ 
+                backgroundColor: theme.palette.mode === 'dark' ? '#fff' : 'transparent', 
+                borderRadius: '50%',
+                padding: '10px'
+              }}
+            >
               <img src={skill.src} alt={skill.title} style={{ width: '50px', height: '50px' }} />
             </div>
             <div className="skills--section--card--content">
