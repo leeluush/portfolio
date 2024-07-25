@@ -6,15 +6,15 @@ import bulbOnIcon from '../../assets/blubOn.png';
 import bulbOffIcon from '../../assets/blubOff.png';
 
 function Navbar() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, themeMode, toggleTheme } = useTheme();
   const [activeLink, setActiveLink] = useState(null);
   const [userHasScrolled, setUserHasScrolled] = useState(false);
-  const [iconClicked, setIconClicked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isRotated, setIsRotated] = useState(themeMode === 'dark');
 
   useEffect(() => {
     const savedIconClicked = localStorage.getItem("iconClicked") === "true";
-    setIconClicked(savedIconClicked);
+    setIsRotated(themeMode === 'dark');
 
     scrollSpy.update();
     const handleScroll = () => {
@@ -25,7 +25,7 @@ function Navbar() {
       window.removeEventListener('scroll', handleScroll);
       Events.scrollEvent.remove('begin');
     };
-  }, [userHasScrolled]);
+  }, [userHasScrolled, themeMode]);
 
   useEffect(() => {
     Events.scrollEvent.register('begin', function () {
@@ -54,11 +54,7 @@ function Navbar() {
 
   const handleIconClick = () => {
     toggleTheme();
-    setIconClicked(prev => {
-      const newState = !prev;
-      localStorage.setItem("iconClicked", newState);
-      return newState;
-    });
+    setIsRotated(prev => !prev);
   };
 
   const handleMouseEnter = () => {
@@ -70,12 +66,12 @@ function Navbar() {
   };
 
   const getIcon = () => {
-    if (theme.palette.mode === 'light') {
-      return isHovered || iconClicked
+    if (themeMode === 'light') {
+      return isHovered || isRotated
         ? <img src={bulbOnIcon} alt="Light Mode" style={{ width: '24px', height: '24px', transition: 'transform 0.3s ease' }} />
         : <img src={bulbOffIcon} alt="Dark Mode" style={{ width: '24px', height: '24px', transition: 'transform 0.3s ease' }} />;
     } else {
-      return iconClicked
+      return isHovered || isRotated
         ? <img src={bulbOnIcon} alt="Dark Mode" style={{ width: '24px', height: '24px', transition: 'transform 0.3s ease' }} />
         : <img src={bulbOffIcon} alt="Light Mode" style={{ width: '24px', height: '24px', transition: 'transform 0.3s ease' }} />;
     }
@@ -100,7 +96,7 @@ function Navbar() {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             sx={{
-              transform: (iconClicked || isHovered) ? 'rotate(180deg)' : 'rotate(0deg)',
+              transform: isRotated ? 'rotate(180deg)' : 'rotate(0deg)',
               transition: 'transform 0.3s ease',
               '&:hover': { transform: 'rotate(180deg)' }
             }}
@@ -126,7 +122,7 @@ function Navbar() {
                 fontFamily: 'Caveat, cursive',
                 fontSize: '16px',
                 backgroundColor: activeLink === link.key ? 'var(--highlight-color)' : 'transparent',
-                color: activeLink === link.key ? 'var(--primary)' : theme.palette.mode === 'light' ? 'var(--primary)' : 'var(--text-light)',
+                color: activeLink === link.key ? 'var(--primary)' : themeMode === 'light' ? 'var(--primary)' : 'var(--text-light)',
                 border: 'none',
                 borderRadius: '5px',
                 cursor: 'pointer',
