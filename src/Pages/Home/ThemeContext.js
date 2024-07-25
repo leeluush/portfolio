@@ -84,6 +84,7 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     document.body.setAttribute('data-theme', themeMode);
+    localStorage.setItem("theme", themeMode); // Ensure theme preference is saved on theme change
   }, [themeMode]);
 
   useEffect(() => {
@@ -104,11 +105,10 @@ export const ThemeProvider = ({ children }) => {
   const toggleTheme = () => {
     const newTheme = themeMode === "light" ? "dark" : "light";
     setThemeMode(newTheme);
-    localStorage.setItem("theme", newTheme); // Save user preference
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, themeMode, toggleTheme }}>
       <MUIThemeProvider theme={theme}>{children}</MUIThemeProvider>
     </ThemeContext.Provider>
   );
